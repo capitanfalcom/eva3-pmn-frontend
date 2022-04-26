@@ -1,0 +1,67 @@
+<div class="container">
+    <div>
+        <h2 class="mb-3">Agregar Pacientes</h2>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Pedro" [(ngModel)]="newPaciente.nombre">
+            </div>
+
+            <div class="col mb-3">
+                <label for="rut" class="form-label">Rut</label>
+                <input type="text" class="form-control" id="rut" placeholder="ingrese su rut" [(ngModel)]="newPaciente.rut">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" placeholder="0" [(ngModel)]="newPaciente.edad">
+            </div>
+
+            <div class="col mt-1">
+                <label>Seleccione Sexo:</label>
+                <div class="form-check" *ngFor="let s of selectSexo">
+                    <input [id]="s" class="form-check-input" type="radio" [value]="s" name="sexo" [(ngModel)]="newPaciente.sexo">
+                    <label class="form-check-label" [for]="s">
+                        {{ s }}
+                    </label>
+                </div>    
+
+                             
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mb-3">
+                <label for="enfermedad" class="form-label">Enfermedad</label>
+                <input type="text" class="form-control" id="enfermedad" placeholder="hambre" [(ngModel)]="newPaciente.enfermedad">
+            </div>
+
+            <div class="col mt-1">
+                <label class="mb-2">Subida Imagen</label>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                    <input type="file" class="form-control" id="inputGroupFile01" accept="image/jpeg" [(ngModel)]="newPaciente.imagen">
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="revisado" [(ngModel)]="newPaciente.revisado">
+                    <label class="form-check-label" for="revisado">
+                        Revisado
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-6">
+
+                <button type="button" class="btn btn-primary" (click)="agregarPaciente()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
